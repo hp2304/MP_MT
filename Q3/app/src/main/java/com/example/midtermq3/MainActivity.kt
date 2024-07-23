@@ -3,6 +3,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.provider.AlarmClock
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        createAlarm("This is an alarm, wake up !!", 0, 1)
+        createAlarm("Wake me up", 2, 30)
 
 
         val textMessage : String = "Hello World"
@@ -31,8 +32,6 @@ class MainActivity : AppCompatActivity() {
         val mapIntent: Intent = Uri.parse(
             "geo:0,0?q=319+Arthur+Lane,+Kitchener,+Ontario"
         ).let { location ->
-        // Or map point based on latitude/longitude
-        // val location: Uri = Uri.parse("geo:37.422219,-122.08364?z=14") // z param is zoom level
             Intent(Intent.ACTION_VIEW, location)
         }
         startActivity(mapIntent);
